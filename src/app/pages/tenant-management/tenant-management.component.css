@@ -1,0 +1,54 @@
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-card {
+  margin-bottom: 24px;
+}
+
+.table-card {
+  margin-top: 24px;
+}
+
+nz-form-item {
+  margin-bottom: 16px;
+}
+
+.button-group {
+  margin-top: 24px;
+}
+
+.button-group [nz-button] {
+  margin-right: 8px;
+}
+
+:host ::ng-deep .ant-table-wrapper {
+  width: 100%;
+}
+
+[nz-button] {
+  margin-right: 8px;
+}
+
+nz-card[nzType="inner"] {
+  margin: 16px 0;
+}
+
+.ant-card-head-title {
+  font-weight: 500;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+nz-card[nzType="inner"] {
+  margin-bottom: 16px;
+}
+
+.button-group {
+  margin-top: 24px;
+  text-align: right;
+}

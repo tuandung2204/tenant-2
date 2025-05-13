@@ -1,0 +1,191 @@
+<div class="container">
+
+  <nz-card class="form-card" [nzTitle]="'Thêm Phòng Khám Mới'">
+    <form nz-form #f="ngForm" (ngSubmit)="createTenant()">
+      <!-- Thông tin cơ bản phòng khám -->
+      <nz-card nzType="inner" nzTitle="Thông tin phòng khám">
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>ID Phòng Khám</nz-form-label>
+              <nz-form-control nzErrorTip="Vui lòng nhập ID phòng khám!">
+                <input nz-input [(ngModel)]="newTenant.clinicId" name="clinicId" required
+                  placeholder="Nhập ID phòng khám" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Tên Phòng Khám</nz-form-label>
+              <nz-form-control nzErrorTip="Vui lòng nhập tên phòng khám!">
+                <input nz-input [(ngModel)]="newTenant.clinicName" name="clinicname" required
+                  placeholder="Nhập tên phòng khám" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Tenant ID</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.tenantId" name="tenantid" placeholder="Nhập Tenant ID" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Số Điện Thoại</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.phone" name="phone"
+                  placeholder="Nhập số điện thoại phòng khám" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Email</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.email" name="email" type="email"
+                  placeholder="Nhập email phòng khám" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Website</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.website" name="website" placeholder="Nhập website" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label>Địa Chỉ</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.address" name="address" placeholder="Nhập địa chỉ" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </nz-card>
+
+      <!-- Thông tin người đại diện -->
+      <nz-card nzType="inner" nzTitle="Thông tin người đại diện" class="mt-16">
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label>Người Đại Diện</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.representativeName" name="representativeName"
+                  placeholder="Nhập tên người đại diện" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </nz-card>
+
+      <!-- Thông tin cấu hình database -->
+      <nz-card nzType="inner" nzTitle="Cấu hình Database" class="mt-16">
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Schema Name</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.schemaname" name="schemaname" placeholder="Nhập schema name" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Database URL</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.dburl" name="dburl" placeholder="Nhập database URL" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Username</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="newTenant.username" name="username" placeholder="Nhập username" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="16">
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label>Password</nz-form-label>
+              <nz-form-control>
+                <input nz-input type="text" [(ngModel)]="newTenant.password" name="password"
+                  placeholder="Nhập password" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </nz-card>
+
+      <div class="button-group">
+        <button nz-button nzType="primary" type="submit">
+          <i nz-icon nzType="plus" nzTheme="outline"></i>
+        </button>
+      </div>
+    </form>
+  </nz-card>
+
+  <!-- Bảng danh sách phòng khám -->
+  <nz-card class="table-card" [nzTitle]="'Danh Sách Phòng Khám'">
+    <nz-table #basicTable [nzData]="tenants" ngSkipHydration>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Mã Phòng Khám</th>
+          <th>Tên Phòng Khám</th>
+          <th>Số Điện Thoại</th>
+          <th>Email</th>
+          <th>Website</th>
+          <th>Địa Chỉ</th>
+          <th>Người Đại Diện</th>
+          <th>Thao Tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tenant of basicTable.data; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ tenant.clinicId}}</td>
+          <td>{{ tenant.clinicName }}</td>
+          <td>{{ tenant.phone }}</td>
+          <td>{{ tenant.email }}</td>
+          <td>{{ tenant.website }}</td>
+          <td>{{ tenant.address }}</td>
+          <td>{{ tenant.representativeName }}</td>
+          <td>
+          
+            <button *ngIf="!isEditing" nz-button nzType="primary" (click)="editTenant(tenant)" nzShape="circle">
+              <i nz-icon nzType="edit"></i>
+            </button>
+
+           
+            <div style="display: flex; gap: 8px;">
+              <button *ngIf="isEditing" nz-button nzType="primary" (click)="updateTenant()" nzShape="circle">
+                <i nz-icon nzType="save"></i> Lưu
+              </button>
+            
+              <button *ngIf="isEditing" nz-button nzType="default" (click)="cancelEdit()" nzShape="circle">
+                <i nz-icon nzType="close"></i> Hủy
+              </button>
+            </div>
+            <button nz-button nzType="primary" nzDanger (click)="deleteTenant(tenant.clinicId)" nzShape="circle">
+              <i nz-icon nzType="delete"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</div>

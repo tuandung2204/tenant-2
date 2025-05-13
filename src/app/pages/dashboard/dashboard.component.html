@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Dashboard Phòng khám</h2>
+  <div *ngIf="tenant; else notFound">
+    <h3>{{ tenant.name }}</h3>
+    <p><strong>Người đại diện:</strong> {{ tenant.representativeName }}</p>
+    <p><strong>Địa chỉ:</strong> {{ tenant.address }}</p>
+    <p><strong>Điện thoại:</strong> {{ tenant.phone }}</p>
+    <p><strong>Email:</strong> {{ tenant.email }}</p>
+  </div>
+  <ng-template #notFound>
+    <p>Không tìm thấy phòng khám này!</p>
+  </ng-template>
+</div>
