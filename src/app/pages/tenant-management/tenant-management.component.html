@@ -5,7 +5,7 @@
       <!-- Thông tin cơ bản phòng khám -->
       <nz-card nzType="inner" nzTitle="Thông tin phòng khám">
         <div nz-row [nzGutter]="16">
-          <div nz-col [nzSpan]="8">
+          <!-- <div nz-col [nzSpan]="8">
             <nz-form-item>
               <nz-form-label>ID Phòng Khám</nz-form-label>
               <nz-form-control nzErrorTip="Vui lòng nhập ID phòng khám!">
@@ -13,7 +13,7 @@
                   placeholder="Nhập ID phòng khám" />
               </nz-form-control>
             </nz-form-item>
-          </div>
+          </div> -->
           <div nz-col [nzSpan]="8">
             <nz-form-item>
               <nz-form-label>Tên Phòng Khám</nz-form-label>
@@ -143,7 +143,6 @@
     <nz-table #basicTable [nzData]="tenants" ngSkipHydration>
       <thead>
         <tr>
-          <th>STT</th>
           <th>Mã Phòng Khám</th>
           <th>Tên Phòng Khám</th>
           <th>Số Điện Thoại</th>
@@ -156,8 +155,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let tenant of basicTable.data; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ tenant.clinicId}}</td>
+          <td>{{ tenant.tenantId}}</td>
           <td>{{ tenant.clinicName }}</td>
           <td>{{ tenant.phone }}</td>
           <td>{{ tenant.email }}</td>
@@ -180,7 +178,7 @@
                 <i nz-icon nzType="close"></i> Hủy
               </button>
             </div>
-            <button nz-button nzType="primary" nzDanger (click)="deleteTenant(tenant.clinicId)" nzShape="circle">
+            <button nz-button nzType="primary" nzDanger (click)="deleteTenant(tenant.tenantId)" nzShape="circle">
               <i nz-icon nzType="delete"></i>
             </button>
           </td>

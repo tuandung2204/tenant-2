@@ -9,10 +9,6 @@ export class TenantService {
   private apiUrl = 'http://localhost:8081/api/tenants';
 
   constructor(private http: HttpClient) {}
-
-  
-
-
   // Lấy danh sách tất cả phòng khám từ backend
   getTenants(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
@@ -20,11 +16,9 @@ export class TenantService {
   createTenant(tenantData: any): Observable<any> {
     return this.http.post(this.apiUrl, tenantData);
   }
-
-
   // Gửi yêu cầu DELETE để xóa phòng khám
-  deleteTenant(clinicId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${clinicId}`);
+  deleteTenant(tenantId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${tenantId}`);
   }
   updateTenant(tenant: any): Observable<any> {
     return this.http.put(this.apiUrl, tenant);
